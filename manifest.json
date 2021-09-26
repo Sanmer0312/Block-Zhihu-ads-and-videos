@@ -1,0 +1,53 @@
+{
+    // 必须
+    "manifest_version": 2,
+    "name": "屏蔽知乎广告和视频",
+    "version": "0.0.1",
+    // 推荐
+    // "default_locale": "en",
+    // "description": "插件的描述",
+    // "icons": {
+    //     "16": "img/icon.png", // 扩展程序页面上的图标
+    //     "32": "img/icon.png", // Windows计算机通常需要此大小。提供此选项可防止尺寸失真缩小48x48选项。
+    //     "48": "img/icon.png", // 显示在扩展程序管理页面上
+    //     "128": "img/icon.png" // 在安装和Chrome Webstore中显示
+    // },
+    // 可选
+    // "background": {
+    //     "page": "background/background.html",
+    //     "scripts": [
+    //         "background.js"
+    //     ],
+    //     // 推荐
+    //     "persistent": false
+    // },
+    // "browser_action": {
+    //     "default_icon": "img/icon.png",
+    //     // 特定于工具栏的图标，至少建议使用16x16和32x32尺寸，应为方形，
+    //     // 不然会变形
+    //     "default_title": "悬浮在工具栏插件图标上时的tooltip内容",
+    //     "default_popup": "hello.html" // 不允许内联JavaScript。
+    // },
+    "content_scripts": [
+        {
+            "js": [
+                "index.js"
+            ],
+            "matches": [
+                "http://*.zhihu.com/*",
+                "https://*.zhihu.com/*"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+    // "permissions": [
+    //     "contextMenus",
+    //     "tabs",
+    //     "http://*/*",
+    //     "https://*/*"
+    // ],
+    // "web_accessible_resources": [
+    //     "dist/*",
+    //     "dist/**/*"
+    // ]
+}
